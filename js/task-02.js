@@ -1,12 +1,13 @@
 const ingredients = ['Картошка', 'Грибы', 'Чеснок', 'Помидоры', 'Зелень', 'Приправы']
 
-const ingredientsEl = document.querySelector('#ingredients')
+function createLi(array, id) {
+  const ingredientsEl = document.querySelector(id)
 
-const ingredientEl = ingredients.map(item => {
-  const itemEl = document.createElement('li')
-  itemEl.textContent = item
-
-  return itemEl
-})
-
-ingredientsEl.append(...ingredientEl)
+  const ingredientEl = array.map(item => {
+    const itemEl = document.createElement('li')
+    itemEl.textContent = item
+    return itemEl
+  })
+  ingredientsEl.append(...ingredientEl)
+}
+createLi(ingredients, '#ingredients')

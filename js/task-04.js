@@ -1,14 +1,52 @@
-const decrementButtonEl = document.querySelector('[data-action="decrement"]')
-const incrementButtonEl = document.querySelector('[data-action="increment"]')
-const valueEl = document.querySelector('#value')
+const counter = {
+  value: 0,
+  test: null,
+  increment() {
+    this.test = setInterval(() => {
+      this.value += 1
 
-let counterValue = 0
+      valueEL.textContent = counter.value
+    }, 130)
+  },
+  click() {
+    this.value += 1
+    valueEL.textContent = counter.value
+  },
+  clickDec() {
+    this.value -= 1
+    valueEL.textContent = counter.value
+  },
+  decrement() {
+    this.test = setInterval(() => {
+      this.value -= 1
 
-decrementButtonEl.addEventListener('click', decrement => {
-  counterValue -= 1
-  valueEl.textContent = counterValue
+      valueEL.textContent = counter.value
+    }, 130)
+  },
+  stopDecrement() {
+    clearInterval(this.test)
+  },
+}
+
+const decrementButton = document.querySelector('.js-decrement')
+const incrementButton = document.querySelector('.js-increment')
+const valueEL = document.querySelector('.js-value')
+console.dir(decrementButton)
+decrementButton.addEventListener('mousedown', function () {
+  counter.decrement()
 })
-incrementButtonEl.addEventListener('click', increment => {
-  counterValue += 1
-  valueEl.textContent = counterValue
+decrementButton.addEventListener('mouseup', function () {
+  counter.stopDecrement()
+})
+incrementButton.addEventListener('mousedown', function () {
+  counter.increment()
+})
+incrementButton.addEventListener('mouseup', function () {
+  counter.stopDecrement()
+})
+decrementButton.addEventListener('mousedown', function () {
+  counter.clickDec()
+})
+incrementButton.addEventListener('mousedown', function () {
+  counter.click()
 })

@@ -12,13 +12,16 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ]
+function createImagesLi(mass, id) {
+  const galleryEl = document.querySelector(id)
+  galleryEl.classList.add('gallery')
+  const imagesMarkup = mass
+    .map(image => {
+      return `<li><img src=${image.url} alt=${image.alt} width=300></li>`
+    })
+    .join(' ')
 
-const galleryEl = document.querySelector('#gallery')
-galleryEl.classList.add('gallery')
-const imagesMarkup = images
-  .map(image => {
-    return `<li><img src=${image.url} alt=${image.alt} width=300></li>`
-  })
-  .join(' ')
+  galleryEl.insertAdjacentHTML('beforeend', imagesMarkup)
+}
 
-galleryEl.insertAdjacentHTML('beforeend', imagesMarkup)
+createImagesLi(images, '#gallery')
