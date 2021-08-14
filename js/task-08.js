@@ -22,13 +22,6 @@ function createBoxes(amount) {
     addDiv.style.width = `${width}px`
     addDiv.style.height = `${height}px`
     divElement.appendChild(addDiv)
-    // Проверочка
-    const set = setInterval(() => {
-      console.log(test)
-    }, 1000)
-    setTimeout(() => {
-      clearInterval(set)
-    }, 4000)
   }
   inputElement.value = amount
 }

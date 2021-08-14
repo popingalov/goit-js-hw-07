@@ -17,7 +17,7 @@ function createImagesLi(mass, id) {
   galleryEl.classList.add('gallery')
   const imagesMarkup = mass
     .map(image => {
-      return `<li><img src=${image.url} alt=${image.alt} width=300></li>`
+      return `<li><img src='${image.url}' alt='${image.alt}' width=300></li>`
     })
     .join(' ')
 
